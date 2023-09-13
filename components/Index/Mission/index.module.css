@@ -1,0 +1,13 @@
+.missioncontainer {
+  width: 100%;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),
+    url("https://s3-alpha-sig.figma.com/img/7b24/6476/71410eee16f1fbf4bd15ed2c13b322a6?Expires=1694390400&Signature=WcE9b0HVSrELwp0GWWL9out8ayZiarf6VOa6ZSRmvu~52WczQwdL5iiCzpemz4w0~Jn12SOgL11z0V5FbuTe00Fd9QzWFUMPvj3HHsA9nOGY2wa58ESVC7naqlFapxm7QXPFfCGMAPhIhvg2tzbYmhqWP4BHo0b3Wc5pcrK0fCV2J0rKa7bYg1AhqmkMFNoQEKZRDelbsqrLinG4OPSiiTAQ7wj1zEo3fIETCOZuFtRL8yXS08hr9g~rpdt8mtgUSwhBZWEFcpJGu7Ap6pEL4wV-LpKl3iZRCOGKDmljzb9tHK2Q3YWOYk1TYdOqTbnK9Fvvzhfd-alilnj-bU0YOQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
+}
