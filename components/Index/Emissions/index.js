@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Stack, Container, Grid } from "@mui/material";
 import useResponsive from "../../../hooks/useResponsive";
-import Emissions from "../../../assets/svg/emissions/emissions.svg";
+import CircularEconomy from "../../../assets/svg/emissions/circulareconomy.svg";
 import CarbonSupplyChain from "../../../assets/svg/features/supplychain.svg";
 
 const ContributionCard = ({ title, image, description }) => (
@@ -57,7 +57,7 @@ const EmissionsComponent = () => {
   return (
     <Box sx={{ bgcolor: "#F6F9FD" }}>
       <Box display={"flex"} justifyContent={"center"}>
-        <Emissions
+        <CircularEconomy
           //   {...(mdUp
           //     ? null
           //     : { width: 500, height: 500, viewBox: "0 50 1800 2200" })}
@@ -152,7 +152,7 @@ const EmissionsComponent = () => {
       >
         <CarbonSupplyChain
           width={1600}
-          height={1900}
+          height={2000}
           viewBox={"0 0 1900 2300"}
         />
       </Box>

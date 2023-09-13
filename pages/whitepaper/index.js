@@ -67,15 +67,15 @@ const WhitepaperComponent = () => {
   const content = [
     {
       description: "Carbon compete Calculating methodology",
-      link: "",
+      link: "https://www.dropbox.com/scl/fi/2giukk3y3lbpwfonsi5gs/Whitepaper.pdf?rlkey=qmnpfkq8n89shdesnp35s14cy&dl=0&raw=1",
     },
     {
       description: "Carbon compete Calculating methodology",
-      link: "",
+      link: "https://www.dropbox.com/scl/fi/2giukk3y3lbpwfonsi5gs/Whitepaper.pdf?rlkey=qmnpfkq8n89shdesnp35s14cy&dl=0&raw=1",
     },
     {
       description: "Carbon compete Calculating methodology",
-      link: "",
+      link: "https://www.dropbox.com/scl/fi/2giukk3y3lbpwfonsi5gs/Whitepaper.pdf?rlkey=qmnpfkq8n89shdesnp35s14cy&dl=0&raw=1",
     },
   ];
 
@@ -116,7 +116,11 @@ const WhitepaperComponent = () => {
                 </CardContent>
 
                 <CardActions>
-                  <Button href={content.link} sx={{ color: "#000000" }}>
+                  <Button
+                    href={content.link}
+                    target="__blank"
+                    sx={{ color: "#000000" }}
+                  >
                     Read More
                   </Button>
                 </CardActions>
