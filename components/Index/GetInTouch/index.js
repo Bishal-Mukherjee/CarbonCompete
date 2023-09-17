@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import RockSvg from "../../../assets/svg/Rock.svg";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: "#149BA1",
@@ -20,7 +19,24 @@ const StyledButton = styled(Button)(({ theme }) => ({
   width: 100,
   height: 40,
   textTransform: "capitalize",
-  fontFamily: "Wix MadeFor Display",
+  fontFamily: "Poppins",
+}));
+
+const StyledInput = styled(TextField)(({ theme }) => ({
+  "& .MuiInputLabel-root": {
+    fontFamily: "Poppins",
+    fontWeight: 600,
+  },
+  "& label.Mui-focused": {
+    color: "#10a997",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#10a997",
+  },
+  "& .MuiFormHelperText-root": {
+    fontFamily: "Poppins",
+    fontWeight: 500,
+  },
 }));
 
 const GetInTouchComponent = () => {
@@ -40,8 +56,7 @@ const GetInTouchComponent = () => {
     location: yup.string().required("*required"),
     phonenumber: yup
       .string()
-      .matches(/^[1-9][0-9]{9}$/, "Invalid phone number")
-      .required("*required"),
+      .matches(/^[1-9][0-9]{9}$/, "Invalid phone number"),
   });
 
   const formik = useFormik({
@@ -83,113 +98,117 @@ const GetInTouchComponent = () => {
 
   return (
     <>
-      <Box>
-        <Container>
-          <Typography
-            sx={{
-              fontFamily: "Wix MadeFor Display",
-              fontSize: 30,
-              fontWeight: "bold",
-              color: "#082930",
-            }}
-          >
-            Get in touch
-          </Typography>
-        </Container>
+      <section id="bookdemo">
+        <Box sx={{ mt: -20 }}>
+          <Container>
+            <Typography
+              sx={{
+                fontFamily: "Poppins",
+                fontSize: 30,
+                fontWeight: "bold",
+                color: "#082930",
+              }}
+            >
+              Book a demo
+            </Typography>
+          </Container>
 
-        <Container sx={{ mt: 5 }}>
-          <form onSubmit={formik.handleSubmit}>
-            <Grid container spacing={5} justifyContent={"center"}>
-              <Grid item md={6} sm={6} xs={12}>
-                <TextField
-                  name={"name"}
-                  value={formik.values.name}
-                  onChange={formik.handleChange}
-                  label="Your Name"
-                  variant="standard"
-                  sx={{ width: "100%" }}
-                  error={formik.touched.name && Boolean(formik.errors.name)}
-                  helperText={formik.errors.name && formik.errors.name}
-                />
+          <Container sx={{ mt: 5 }}>
+            <form onSubmit={formik.handleSubmit}>
+              <Grid container spacing={5} justifyContent={"center"}>
+                <Grid item md={6} sm={6} xs={12}>
+                  <StyledInput
+                    name={"name"}
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                    label="Name"
+                    variant="standard"
+                    sx={{ width: "100%" }}
+                    error={formik.touched.name && Boolean(formik.errors.name)}
+                    helperText={formik.errors.name && formik.errors.name}
+                    multiline
+                    rows={2}
+                  />
+                </Grid>
+
+                <Grid item md={6} sm={6} xs={12}>
+                  <StyledInput
+                    name={"location"}
+                    value={formik.values.location}
+                    onChange={formik.handleChange}
+                    label="Location"
+                    variant="standard"
+                    sx={{ width: "100%" }}
+                    error={
+                      formik.touched.location && Boolean(formik.errors.location)
+                    }
+                    helperText={
+                      formik.errors.location && formik.errors.location
+                    }
+                    multiline
+                    rows={2}
+                  />
+                </Grid>
+
+                <Grid item md={6} sm={6} xs={12}>
+                  <StyledInput
+                    name={"email"}
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    label="Email"
+                    variant="standard"
+                    sx={{ width: "100%" }}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.errors.email && formik.errors.email}
+                    multiline
+                    rows={2}
+                  />
+                </Grid>
+
+                <Grid item md={6} sm={6} xs={12}>
+                  <StyledInput
+                    name={"phonenumber"}
+                    value={formik.values.phonenumber}
+                    onChange={formik.handleChange}
+                    label="Phone Number"
+                    variant="standard"
+                    sx={{ width: "100%" }}
+                    error={
+                      formik.touched.phonenumber &&
+                      Boolean(formik.errors.phonenumber)
+                    }
+                    helperText={
+                      formik.errors.phonenumber && formik.errors.phonenumber
+                    }
+                    multiline
+                    rows={2}
+                  />
+                </Grid>
+                <Grid item md={12} sm={12} xs={12}>
+                  <StyledInput
+                    name={"message"}
+                    value={formik.values.message}
+                    onChange={formik.handleChange}
+                    label="What are you looking for?"
+                    variant="standard"
+                    sx={{ width: "100%" }}
+                    multiline
+                    rows={4}
+                  />
+                </Grid>
               </Grid>
 
-              <Grid item md={6} sm={6} xs={12}>
-                <TextField
-                  name={"location"}
-                  value={formik.values.location}
-                  onChange={formik.handleChange}
-                  label="Your location"
-                  variant="standard"
-                  sx={{ width: "100%" }}
-                  error={
-                    formik.touched.location && Boolean(formik.errors.location)
-                  }
-                  helperText={formik.errors.location && formik.errors.location}
-                />
-              </Grid>
+              <Box sx={{ mt: 5 }}>
+                <StyledButton type="submit">Submit</StyledButton>
+              </Box>
+            </form>
+          </Container>
+        </Box>
 
-              <Grid item md={6} sm={6} xs={12}>
-                <TextField
-                  name={"email"}
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  label="Your Email"
-                  variant="standard"
-                  sx={{ width: "100%" }}
-                  error={formik.touched.email && Boolean(formik.errors.email)}
-                  helperText={formik.errors.email && formik.errors.email}
-                />
-              </Grid>
-
-              <Grid item md={6} sm={6} xs={12}>
-                <TextField
-                  name={"phonenumber"}
-                  value={formik.values.phonenumber}
-                  onChange={formik.handleChange}
-                  label="Phone Number"
-                  variant="standard"
-                  sx={{ width: "100%" }}
-                  error={
-                    formik.touched.phonenumber &&
-                    Boolean(formik.errors.phonenumber)
-                  }
-                  helperText={
-                    formik.errors.phonenumber && formik.errors.phonenumber
-                  }
-                />
-              </Grid>
-              <Grid item md={12} sm={12} xs={12}>
-                <TextField
-                  name={"message"}
-                  value={formik.values.message}
-                  onChange={formik.handleChange}
-                  label="Write your message"
-                  variant="standard"
-                  sx={{ width: "100%" }}
-                  multiline
-                  rows={4}
-                />
-              </Grid>
-            </Grid>
-
-            <Box sx={{ mt: 5 }}>
-              <StyledButton type="submit">Submit</StyledButton>
-            </Box>
-          </form>
-        </Container>
-      </Box>
-
-      <Box>
-        <Stack justifyContent={"center"} alignItems={"center"}>
-          <Box>
-            <RockSvg width={600} height={800} />
-          </Box>
-
+        <Stack sx={{ mt: 10 }} justifyContent={"center"} alignItems={"center"}>
           <Box
             sx={{
               bgcolor: "#F4F4F4",
-              width: "100%",
-              position: "absolute",
               width: "80%",
               p: 5,
             }}
@@ -202,7 +221,7 @@ const GetInTouchComponent = () => {
             >
               <Typography
                 sx={{
-                  fontFamily: "Wix MadeFor Display",
+                  fontFamily: "Poppins",
                   fontWeight: "bold",
                   fontSize: 30,
                 }}
@@ -211,7 +230,7 @@ const GetInTouchComponent = () => {
               </Typography>
               <Typography
                 sx={{
-                  fontFamily: "Wix MadeFor Display",
+                  fontFamily: "Poppins",
                   fontSize: 15,
                   textAlign: "center",
                 }}
@@ -232,11 +251,11 @@ const GetInTouchComponent = () => {
                 spacing={3}
               >
                 <Box sx={{ width: "50%" }}>
-                  <TextField
+                  <StyledInput
                     name={"email"}
                     value={BlogFormik.values.email}
                     onChange={BlogFormik.handleChange}
-                    label="Your Email"
+                    label="Email"
                     variant="standard"
                     sx={{ width: "100%" }}
                     error={
@@ -256,7 +275,7 @@ const GetInTouchComponent = () => {
             </form>
           </Box>
         </Stack>
-      </Box>
+      </section>
     </>
   );
 };

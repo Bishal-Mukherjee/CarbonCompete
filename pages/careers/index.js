@@ -25,7 +25,25 @@ const StyledButton = styled(Button)(({ theme }) => ({
   width: 100,
   height: 40,
   textTransform: "capitalize",
-  fontFamily: "Wix MadeFor Display",
+  fontFamily: "Poppins",
+}));
+
+const StyledInput = styled(TextField)(({ theme }) => ({
+  variant: "standard",
+  "& .MuiInputLabel-root": {
+    fontFamily: "Poppins",
+    fontWeight: 600,
+  },
+  "& label.Mui-focused": {
+    color: "#10a997",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#10a997",
+  },
+  "& .MuiFormHelperText-root": {
+    fontFamily: "Poppins",
+    fontWeight: 500,
+  },
 }));
 
 const CareersComponent = () => {
@@ -119,7 +137,7 @@ const CareersComponent = () => {
             <Typography
               sx={{
                 color: "#FFFFFF",
-                fontFamily: "Wix MadeFor Display",
+                fontFamily: "Poppins",
                 fontWeight: "bold",
                 fontSize: 35,
                 textAlign: "center",
@@ -137,10 +155,7 @@ const CareersComponent = () => {
             <Grid item md={4} sm={6} xs={6}>
               <Card sx={{ height: 300, borderRadius: 0 }}>
                 <CardContent sx={{ height: 240 }}>
-                  <Typography
-                    fontFamily={"Wix MadeFor Display"}
-                    fontWeight={900}
-                  >
+                  <Typography fontFamily={"Poppins"} fontWeight={900}>
                     {job.label}
                   </Typography>
                 </CardContent>
@@ -163,7 +178,7 @@ const CareersComponent = () => {
       <Container>
         <Typography
           sx={{
-            fontFamily: "Wix MadeFor Display",
+            fontFamily: "Poppins",
             fontSize: 25,
             textAlign: "center",
           }}
@@ -172,7 +187,7 @@ const CareersComponent = () => {
         </Typography>
         <Typography
           sx={{
-            fontFamily: "Wix MadeFor Display",
+            fontFamily: "Poppins",
             fontSize: 25,
             textAlign: "center",
             mt: 5,
@@ -187,38 +202,42 @@ const CareersComponent = () => {
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={5} justifyContent={"center"}>
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"name"}
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 label="Full Name"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 helperText={formik.errors.name && formik.errors.name}
+                multiline
+                rows={2}
               />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"email"}
                 value={formik.values.email}
                 onChange={formik.handleChange}
-                label="Work E-Mail"
-                variant="filled"
+                label="Email"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.errors.email && formik.errors.email}
+                multiline
+                rows={2}
               />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"expectedctc"}
                 value={formik.values.expectedctc}
                 onChange={formik.handleChange}
                 label="Expected CTC"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={
                   formik.touched.expectedctc &&
@@ -227,16 +246,18 @@ const CareersComponent = () => {
                 helperText={
                   formik.errors.expectedctc && formik.errors.expectedctc
                 }
+                multiline
+                rows={2}
               />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"phonenumber"}
                 value={formik.values.phonenumber}
                 onChange={formik.handleChange}
                 label="Phone Number"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={
                   formik.touched.phonenumber &&
@@ -245,11 +266,13 @@ const CareersComponent = () => {
                 helperText={
                   formik.errors.phonenumber && formik.errors.phonenumber
                 }
+                multiline
+                rows={2}
               />
             </Grid>
 
             <Grid item md={12} sm={12} xs={12}>
-              <TextField
+              <StyledInput
                 select
                 name={"applieddesignation"}
                 value={formik.values.applieddesignation}
@@ -271,16 +294,16 @@ const CareersComponent = () => {
                     {j.label}
                   </MenuItem>
                 ))}
-              </TextField>
+              </StyledInput>
             </Grid>
 
             <Grid item md={12} sm={12} xs={12}>
-              <TextField
+              <StyledInput
                 name={"skillset"}
                 value={formik.values.skillset}
                 onChange={formik.handleChange}
                 label="Describe your skill set..."
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 multiline
                 rows={4}

@@ -21,7 +21,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   width: 100,
   height: 40,
   textTransform: "capitalize",
-  fontFamily: "Wix MadeFor Display",
+  fontFamily: "Poppins",
 }));
 
 const ContactCard = ({ icon, label, details }) => (
@@ -34,7 +34,7 @@ const ContactCard = ({ icon, label, details }) => (
       <Box height={25}>
         <Typography
           sx={{
-            fontFamily: "Wix MadeFor Display",
+            fontFamily: "Poppins",
             fontWeight: "bold",
             fontSize: 25,
           }}
@@ -47,7 +47,7 @@ const ContactCard = ({ icon, label, details }) => (
         <Typography
           sx={{
             textAlign: "center",
-            fontFamily: "Wix MadeFor Display",
+            fontFamily: "Poppins",
             fontWeight: "light",
             fontSize: 15,
           }}
@@ -122,7 +122,7 @@ const ContactComponent = () => {
           <Box>
             <Typography
               sx={{
-                fontFamily: "Wix MadeFor Display",
+                fontFamily: "Poppins",
                 color: "#FFFFFF",
                 textAlign: "center",
                 fontSize: 35,
@@ -136,7 +136,7 @@ const ContactComponent = () => {
           <Box>
             <Typography
               sx={{
-                fontFamily: "Wix MadeFor Display",
+                fontFamily: "Poppins",
                 color: "#FFFFFF",
                 textAlign: "center",
                 fontSize: 30,
@@ -151,7 +151,7 @@ const ContactComponent = () => {
         </Stack>
       </Box>
 
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -175,21 +175,22 @@ const ContactComponent = () => {
             </Grid>
           ))}
         </Grid>
-      </Box>
+      </Box> */}
 
       <Container>
         <Typography
           textAlign={"center"}
-          fontFamily={"Wix MadeFor Display"}
+          fontFamily={"Poppins"}
           fontSize={25}
           fontWeight={"bold"}
+          sx={{ mt: 5 }}
         >
           Contact Us
         </Typography>
         <Typography
           textAlign={"center"}
           mt={5}
-          fontFamily={"Wix MadeFor Display"}
+          fontFamily={"Poppins"}
           fontSize={20}
         >
           For further questions, including partnership opportunities, please

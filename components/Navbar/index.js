@@ -5,11 +5,12 @@ import {
   Stack,
   AppBar,
   Toolbar,
-  IconButton,
-  styled,
-  Typography,
+  Grid,
   Button,
+  Slide,
+  styled,
 } from "@mui/material";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
 
 import { usePathname, useRouter } from "next/navigation";
 
@@ -19,34 +20,33 @@ import { usePathname, useRouter } from "next/navigation";
 import useResponsive from "../../hooks/useResponsive";
 
 // components
-import PhoneIcon from "../../assets/svg/navbar/phone.svg";
-import MailIcon from "../../assets/svg/navbar/mail.svg";
-import MenuIcon from "../../assets/svg/navbar/menu.svg";
-import LanguageTranslator from "../../assets/svg/navbar/language-translator.svg";
-// import navbg from "../../public/images/navbg.jpeg";
+import CarbonCompete from "../../assets/svg/footer/footerlogo.svg";
 import { useEffect, useState } from "react";
-
-import CarbonCompete from "../../assets/svg/CarbonCompete.svg";
 
 // ----------------------------------------------------------------------
 
 const StyledLink = styled("p")(({ theme }) => ({
-  fontFamily: "Wix Madefor Display",
+  fontFamily: "Poppins",
   cursor: "pointer",
   fontSize: 15,
-  textDecorationThickness: 3,
+  textDecorationThickness: 5,
   color: "#FFFFFF",
   textUnderlineOffset: 5,
+  borderRadius: 50,
+  padding: 5,
+  width: 125,
+  textAlign: "center",
+  ":hover": {
+    backgroundColor: "#55828b",
+  },
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: "#FFFFFF",
-  //   border: "3px solid #00C9D2",
-  //   backgroundColor: "rgba(0, 0, 0, 0.40)",
   width: 100,
   height: 40,
   textTransform: "capitalize",
-  fontFamily: "Wix MadeFor Display",
+  fontFamily: "Poppins",
 }));
 
 const NAV_WIDTH = 280;
@@ -57,18 +57,17 @@ const HEADER_DESKTOP = 92;
 
 const StyledRoot = styled(AppBar)(({ theme }) => ({
   // ...bgBlur({ color: theme.palette.background.default }),
-  boxShadow: "none",
   width: "100%",
-  boxShadow: "5px 4px 5px #000000",
+  boxShadow: "none",
+  //   transition: "display 0.3s ease",
+  //   boxShadow: "5px 4px 5px #000000",
   //   [theme.breakpoints.up("lg")]: {
   //     width: "100%",
   //   },
 }));
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-  minHeight: HEADER_MOBILE,
-  height: 85,
-  backgroundColor: "#149BA1",
+  backgroundColor: "#edf6f9",
   width: "100%",
   flexGrow: 1,
   alignItems: "center",
@@ -90,6 +89,8 @@ export default function Header({ onOpenNav }) {
   const router = useRouter();
   const mdUp = useResponsive("up", "md");
 
+  const trigger = useScrollTrigger();
+
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   const navlinks = [
@@ -98,7 +99,7 @@ export default function Header({ onOpenNav }) {
     { label: "Whitepaper", loc: "/whitepaper", index: 2 },
     { label: "About Us", loc: "/aboutus", index: 3 },
     { label: "Contact", loc: "/contact", index: 4 },
-    { label: "Careers", loc: "/careers", index: 5 },
+    { label: "Resources", loc: "/careers", index: 5 },
   ];
 
   const handlePageChange = () => {
@@ -115,135 +116,67 @@ export default function Header({ onOpenNav }) {
   }, [pathname]);
 
   return (
-    <StyledRoot>
-      <StyledToolbar className={"navcontainer"}>
-        <Stack
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          width={"100%"}
-        >
-          <Stack
-            direction={"row"}
-            spacing={1}
-            sx={{ cursor: "pointer" }}
-            onClick={() => router.push("/")}
-          >
-            <CarbonCompete />
-            <Typography
-              sx={{
-                fontFamily: "Wix MadeFor Display",
-                fontWeight: 900,
-                ml: 1.5,
-                fontSize: 20,
-              }}
-            >
-              Carbon
-              <br />
-              Compete
-            </Typography>
-          </Stack>
-
-          <Box>
-            <IconButton
-              onClick={onOpenNav}
-              sx={{
-                mr: 1,
-                color: "text.primary",
-                display: { lg: "none", xs: "block", sm: "block" },
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Box>
-        </Stack>
-
-        <Box sx={{ flexGrow: 0.5 }} />
-
-        <Stack direction={"row"}>
-          <Box mr={1}>
-            <Typography sx={{ fontSize: 15 }}>French</Typography>
-          </Box>
-
-          <Box>
-            <LanguageTranslator />
-          </Box>
-
-          <Box ml={1}>
-            <Typography
-              sx={{
-                textDecoration: "underline",
-                textDecorationThickness: 3,
-                textUnderlineOffset: 5,
-                fontSize: 15,
-                fontWeight: "bold",
-              }}
-            >
-              English
-            </Typography>
-          </Box>
-        </Stack>
-      </StyledToolbar>
-
-      <StyledToolbar
-        sx={{
-          display: { lg: "flex", sm: "none", xs: "none" },
-          height: 70,
-          // boxShadow: "5px 5px 5px #000000",
-        }}
-      >
-        <IconButton
-          onClick={onOpenNav}
-          sx={{
-            mr: 1,
-            color: "text.primary",
-            display: { lg: "none", xs: "block", sm: "block" },
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
-
-        <Stack
-          direction={"row"}
-          justifyContent={"space-evenly"}
-          alignItems={"center"}
-          width={"50%"}
-          sx={{ display: { lg: "flex", xs: "none", sm: "none" } }}
-        >
-          {navlinks.map((navlink, i) => (
-            <StyledLink
-              sx={{
-                textDecoration: i === selectedIndex ? "underline" : "none",
-                fontWeight: i === selectedIndex ? "bold" : "light",
-              }}
-              key={i}
-              onClick={() => router.push(navlink.loc, { scroll: false })}
-            >
-              {navlink.label}
-            </StyledLink>
-          ))}
-        </Stack>
-
-        <Box sx={{ flexGrow: 1 }} />
-
-        <Stack
-          direction={"row"}
-          spacing={6}
-          sx={{ display: { lg: "flex", sm: "none", xs: "none" } }}
-        >
-          <Stack
-            direction={"row"}
+    <Slide appear={false} direction="down" in={!trigger} timeout={500}>
+      <StyledRoot>
+        <StyledToolbar className={"navcontainer"}>
+          <Grid
+            container
             spacing={2}
-            sx={{ display: { lg: "flex", sm: "none", xs: "none" } }}
+            sx={{ justifyContent: "space-evenly", alignItems: "center", px: 5 }}
           >
-            <StyledButton>Login</StyledButton>
+            <Grid item md={2}>
+              <Box sx={{ cursor: "pointer" }} onClick={() => router.push("/")}>
+                <CarbonCompete viewBox={"0 0 500 80"} />
+              </Box>
+            </Grid>
 
-            <StyledButton sx={{ border: "1px solid #FFFFFF" }}>
-              Let's chat
-            </StyledButton>
-          </Stack>
-        </Stack>
-      </StyledToolbar>
-    </StyledRoot>
+            <Grid
+              item
+              md={8}
+              sx={{
+                display: { lg: "block", md: "block", sm: "none", xs: "none" },
+              }}
+            >
+              <Stack
+                direction={"row"}
+                justifyContent={"space-evenly"}
+                alignItems={"center"}
+              >
+                {navlinks.map((navlink, i) => (
+                  <StyledLink
+                    sx={{
+                      textDecoration:
+                        i === selectedIndex ? "underline" : "none",
+                      fontWeight: i === selectedIndex ? "bold" : "light",
+                    }}
+                    key={i}
+                    onClick={() => router.push(navlink.loc, { scroll: false })}
+                  >
+                    {navlink.label}
+                  </StyledLink>
+                ))}
+              </Stack>
+            </Grid>
+
+            <Grid
+              item
+              md={2}
+              sx={{
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "center",
+              }}
+            >
+              <StyledButton
+                sx={{ border: "1px solid #FFFFFF", width: "auto" }}
+                href="#bookdemo"
+              >
+                Request Demo
+              </StyledButton>
+            </Grid>
+          </Grid>
+        </StyledToolbar>
+      </StyledRoot>
+    </Slide>
   );
 }

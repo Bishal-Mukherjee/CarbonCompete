@@ -2,9 +2,8 @@ import React from "react";
 import { Box, Grid, Link, Stack, Typography, styled } from "@mui/material";
 import { useRouter } from "next/navigation";
 import CarbonCompete from "../../assets/svg/footer/footerlogo.svg";
-import WhatsappLogo from "../../assets/svg/footer/whatsapp.svg";
 import FacebookLogo from "../../assets/svg/footer/facebook.svg";
-import InstagramLogo from "../../assets/svg/footer/instagram.svg";
+import LinkedInLogo from "../../assets/svg/footer/linkedin.svg";
 import YoutubeLogo from "../../assets/svg/footer/youtube.svg";
 
 const StyledIcon = styled("div")(({ theme }) => ({
@@ -23,15 +22,17 @@ const FooterComponent = () => {
   const router = useRouter();
 
   const sociallinks = [
-    { icon: <WhatsappLogo />, link: "" },
+    {
+      icon: <LinkedInLogo />,
+      link: "https://www.linkedin.com/company/carboncompete/",
+    },
     { icon: <FacebookLogo />, link: "" },
-    { icon: <InstagramLogo />, link: "" },
     { icon: <YoutubeLogo />, link: "" },
   ];
 
   const navlinks = [
     { label: "Home", link: "/" },
-    { label: "White paper", link: "/whitepaper" },
+    { label: "Whitepaper", link: "/whitepaper" },
     { label: "Product", link: "/product" },
     { label: "Careers", link: "/careers" },
     { label: "Contact", link: "/contact" },
@@ -56,7 +57,7 @@ const FooterComponent = () => {
               <Box>
                 <Typography
                   sx={{
-                    fontFamily: "Wix MadeFor Display",
+                    fontFamily: "Poppins",
                     color: "#FFFFFF",
                   }}
                 >
@@ -73,7 +74,9 @@ const FooterComponent = () => {
               <Stack direction={"row"} spacing={5}>
                 {sociallinks.map((link, index) => (
                   <Box key={index}>
-                    <StyledIcon>{link.icon}</StyledIcon>
+                    <a href={link.link} target="__blank">
+                      <StyledIcon>{link.icon}</StyledIcon>
+                    </a>
                   </Box>
                 ))}
               </Stack>
@@ -92,7 +95,7 @@ const FooterComponent = () => {
                 <Box key={index}>
                   <Typography
                     sx={{
-                      fontFamily: "Wix MadeFor Display",
+                      fontFamily: "Poppins",
                       color: "#FFFFFF",
                       fontSize: 15,
                       textDecoration: "none",
@@ -117,7 +120,7 @@ const FooterComponent = () => {
         >
           <Typography
             sx={{ fontSize: 11 }}
-            fontFamily={"Wix MadeFor Display"}
+            fontFamily={"Poppins"}
             color={"#545C71"}
           >
             Copyright 2022 sapphire. All right reserved.
@@ -125,14 +128,14 @@ const FooterComponent = () => {
 
           <Typography
             sx={{ fontSize: 11 }}
-            fontFamily={"Wix MadeFor Display"}
+            fontFamily={"Poppins"}
             color={"#545C71"}
           >
             Privacy Policy
           </Typography>
           <Typography
             sx={{ fontSize: 11 }}
-            fontFamily={"Wix MadeFor Display"}
+            fontFamily={"Poppins"}
             color={"#545C71"}
           >
             Terms & Conditions

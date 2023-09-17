@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import {
   Box,
   Button,
-  Container,
   Grid,
   Divider,
   Paper,
@@ -18,13 +17,15 @@ import {
 } from "@mui/material";
 import { Icon } from "@iconify/react";
 import useResponsive from "../../hooks/useResponsive";
-import Features from "../../assets/svg/product/features.svg";
+import BusinessModel from "../../assets/svg/aboutus/businessmodel.svg";
+import Vision from "../../assets/svg/aboutus/vision.svg";
+import Mission from "../../assets/svg/aboutus/mission.svg";
 
 const JoinUsCard = ({ redirect }) => (
   <Card>
     <CardContent sx={{ bgcolor: "#003A3C", height: 310 }}>
       <Typography
-        fontFamily={"Wix MadeFor Display"}
+        fontFamily={"Poppins"}
         gutterBottom
         variant="h2"
         component="div"
@@ -62,7 +63,7 @@ const MemberCard = ({ name, image, designation, email, linkedIn }) => (
 
     <CardContent>
       <Typography
-        fontFamily={"Wix MadeFor Display"}
+        fontFamily={"Poppins"}
         gutterBottom
         variant="h5"
         component="div"
@@ -93,7 +94,7 @@ const ContentSegment = ({ header, pdescription, sdescription }) => (
   <Box>
     <Stack direction={"column"} justifyContent={"center"}>
       <Typography
-        fontFamily={"Wix MadeFor Display"}
+        fontFamily={"Poppins"}
         fontWeight={900}
         fontSize={30}
         color={"#082930"}
@@ -101,19 +102,11 @@ const ContentSegment = ({ header, pdescription, sdescription }) => (
         {header}
       </Typography>
 
-      <Typography
-        sx={{ mt: 2 }}
-        fontFamily={"Wix MadeFor Display"}
-        fontSize={20}
-      >
+      <Typography sx={{ mt: 2 }} fontFamily={"Poppins"} fontSize={20}>
         {pdescription}
       </Typography>
 
-      <Typography
-        sx={{ mt: 2 }}
-        fontFamily={"Wix MadeFor Display"}
-        fontSize={20}
-      >
+      <Typography sx={{ mt: 2 }} fontFamily={"Poppins"} fontSize={20}>
         {sdescription}
       </Typography>
     </Stack>
@@ -157,14 +150,15 @@ const AboutusComponent = () => {
         <Box>
           <Typography
             sx={{
-              fontFamily: "Wix MadeFor Display",
+              fontFamily: "Poppins",
               color: "#FFFFFF",
               textAlign: "center",
               fontSize: 35,
               fontWeight: "bold",
             }}
           >
-            We will help you to <br /> solve problem.
+            Achieving your carbon neutrality goals,
+            <br /> one product at a time
           </Typography>
         </Box>
       </div>
@@ -176,7 +170,7 @@ const AboutusComponent = () => {
           transform: "translate(0%, -50%)",
         }}
       >
-        <Box sx={{ p: 5 }} width={550} component={Paper}>
+        <Box sx={{ p: 5 }} width={650} component={Paper}>
           <Stack direction={"row"} spacing={4}>
             <Box>
               <Divider
@@ -186,9 +180,7 @@ const AboutusComponent = () => {
             </Box>
 
             <Box>
-              <Typography
-                sx={{ fontFamily: "Wix MadeFor Display", color: "#149BA1" }}
-              >
+              <Typography sx={{ fontFamily: "Poppins", color: "#149BA1" }}>
                 CarbonCompete brings innovative and critical changes in the
                 product supply chain to support sustainability, enabling
                 industries to drive competition and return on investment while
@@ -199,26 +191,24 @@ const AboutusComponent = () => {
         </Box>
       </Box>
 
-      <Container>
-        <Grid container spacing={8}>
+      <Box sx={{ px: 15 }}>
+        <Grid
+          container
+          spacing={5}
+          sx={{ alignItems: "center", justifyContent: "center" }}
+        >
           <Grid item md={6} sm={12} xs={12}>
-            <Stack direction={"column"} spacing={4}>
-              <ContentSegment
-                header={"Mission"}
-                pdescription={
-                  "CarbonCompete brings innovative and critical changes in the product supply chain to support sustainability, enabling industries to drive competition and return on investment while reducing carbon emissions."
-                }
-              />
-
-              <ContentSegment
-                header={"Business Model"}
-                pdescription={
-                  "CarbonCompete brings innovative and critical changes in the product supply chain to support sustainability, enabling industries to drive competition and return on investment while reducing carbon emissions."
-                }
-                sdescription={
-                  "CarbonCompete is an enterprise software-as-a-service business and offers its platform with an annual license per user agreement model. From an existing client, CarbonCompete aims to onboard its clients upstream suppliers and downstream partners to build a thorough carbon accounting solution."
-                }
-              />
+            <Stack direction={"column"} spacing={3}>
+              <Typography fontFamily={"Poppins"} fontWeight={900} fontSize={30}>
+                Business Model
+              </Typography>
+              <Typography fontFamily={"Poppins"} fontWeight={500} fontSize={18}>
+                Carbon Intel is a SaaS based subscription model, Unlike
+                licensing, a user receives access to the software by paying a
+                subscription fee on a monthly/annual basis.  The access to the
+                subscription modules are allowed/restricted to the package
+                bought by the customer.
+              </Typography>
             </Stack>
           </Grid>
 
@@ -227,31 +217,93 @@ const AboutusComponent = () => {
             md={6}
             sm={12}
             xs={12}
-            display={"flex"}
-            alignItems={"center"}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            <img src={"/images/ProblemImg.png"} />
+            <BusinessModel />
           </Grid>
         </Grid>
-      </Container>
 
-      <Container sx={{ mt: 15 }}>
-        <Stack direction={"column"} spacing={2}>
-          <Typography
-            fontFamily={"Wix MadeFor Display"}
-            fontWeight={900}
-            fontSize={30}
-            color={"#082930"}
+        <Grid
+          container
+          spacing={5}
+          sx={{ alignItems: "center", justifyContent: "center" }}
+        >
+          <Grid
+            item
+            md={6}
+            sm={12}
+            xs={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            Management Team
-          </Typography>
+            <Vision />
+          </Grid>
+          <Grid item md={6} sm={12} xs={12}>
+            <Stack direction={"column"} spacing={3}>
+              <Typography fontFamily={"Poppins"} fontWeight={900} fontSize={30}>
+                Vision
+              </Typography>
+              <Typography fontFamily={"Poppins"} fontWeight={500} fontSize={18}>
+                A future, where consumer’s will be empowered through data to
+                make environmentally conscious decisions via their spending
+                habits.
+              </Typography>
+            </Stack>
+          </Grid>
+        </Grid>
 
-          <FormHelperText sx={{ fontSize: 20, color: "#05D776" }}>
-            Meet our team
-          </FormHelperText>
-        </Stack>
+        <Grid
+          container
+          spacing={5}
+          sx={{ alignItems: "center", justifyContent: "center" }}
+        >
+          <Grid item md={6} sm={12} xs={12}>
+            <Stack direction={"column"} spacing={3}>
+              <Typography fontFamily={"Poppins"} fontWeight={900} fontSize={30}>
+                Mission
+              </Typography>
+              <Typography fontFamily={"Poppins"} fontWeight={500} fontSize={18}>
+                Our missions is to drive behavioral change through product level
+                carbon accounting. We want to provide a comprehensive model for
+                how climate responsibility is attributed at the level of the
+                consumer.
+              </Typography>
+            </Stack>
+          </Grid>
+          <Grid
+            item
+            md={6}
+            sm={12}
+            xs={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Mission />
+          </Grid>
+        </Grid>
+      </Box>
 
-        <Grid container spacing={4}>
+      <Box sx={{ px: 15 }}>
+        <Typography
+          fontFamily={"Poppins"}
+          fontWeight={900}
+          fontSize={30}
+          color={"#082930"}
+        >
+          Meet our team
+        </Typography>
+
+        <Grid container spacing={4} sx={{ mt: 2 }}>
           <Grid item md={4} sm={12} xs={12}>
             <Stack sx={{ height: "100%" }} direction={"column"} spacing={5}>
               <Box sx={{ height: "100%" }}>
@@ -265,7 +317,6 @@ const AboutusComponent = () => {
                   <Stack
                     direction={"column"}
                     justifyContent={"center"}
-                    // alignItems={"center"}
                     height={"100%"}
                     spacing={5}
                     sx={{ p: 2 }}
@@ -309,15 +360,12 @@ const AboutusComponent = () => {
                       <Box>
                         <Typography
                           color={"#152935"}
-                          fontFamily={"Wix MadeFor Display"}
+                          fontFamily={"Poppins"}
                           fontWeight={900}
                         >
                           Call Us:
                         </Typography>
-                        <Typography
-                          color={"#152935"}
-                          fontFamily={"Wix MadeFor Display"}
-                        >
+                        <Typography color={"#152935"} fontFamily={"Poppins"}>
                           9486084342
                         </Typography>
                       </Box>
@@ -325,15 +373,12 @@ const AboutusComponent = () => {
                       <Box>
                         <Typography
                           color={"#152935"}
-                          fontFamily={"Wix MadeFor Display"}
+                          fontFamily={"Poppins"}
                           fontWeight={900}
                         >
                           Mail Us:
                         </Typography>
-                        <Typography
-                          color={"#152935"}
-                          fontFamily={"Wix MadeFor Display"}
-                        >
+                        <Typography color={"#152935"} fontFamily={"Poppins"}>
                           info@carboncompete.com
                         </Typography>
                       </Box>
@@ -357,41 +402,7 @@ const AboutusComponent = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Container>
-
-      <Container sx={{ mt: 15 }}>
-        <Grid container spacing={6}>
-          <Grid item md={6} sm={12} xs={12}>
-            <Stack direction={"column"} spacing={3}>
-              <Typography
-                fontFamily={"Wix MadeFor Display"}
-                fontSize={30}
-                fontWeight={800}
-              >
-                Why Choose Us?
-              </Typography>
-
-              <Typography fontFamily={"Wix MadeFor Display"} fontSize={20}>
-                CarbonCompete brings innovative and critical changes in the
-                product supply chain to support sustainability, enabling
-                industries to drive competition and return on investment while
-                reducing carbon emissions. CarbonCompete brings innovative and
-                critical changes in the product supply chain to support
-                sustainability, enabling industries to drive competition and
-                return on investment while reducing carbon emissions.
-              </Typography>
-            </Stack>
-          </Grid>
-
-          <Grid item md={6} sm={12} xs={12}>
-            <Features
-              {...(mdUp
-                ? { width: 500, height: 500, viewBox: "0 0 600 600" }
-                : { width: 400, height: 400, viewBox: "0 0 700 750" })}
-            />
-          </Grid>
-        </Grid>
-      </Container>
+      </Box>
     </Box>
   );
 };

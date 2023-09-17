@@ -9,13 +9,14 @@ const ContributionCard = ({ title, image, description }) => (
     direction={"column"}
     alignItems={"flex-start"}
     spacing={5}
-    sx={{ bgcolor: "#D9D9D9", height: "100%", p: 3 }}
+    sx={{ bgcolor: "#D9D9D9", height: "100%", p: 3, px: 5 }}
   >
     <Box>
       <Typography
         sx={{
-          fontFamily: "Wix MadeFor Display",
+          fontFamily: "Poppins",
           fontWeight: "bold",
+          fontSize: 25,
         }}
       >
         {title}
@@ -25,9 +26,7 @@ const ContributionCard = ({ title, image, description }) => (
       <img src={image} alt={title} style={{ width: "100%" }} />
     </Box>
     <Box>
-      <Typography
-        sx={{ fontFamily: "Wix MadeFor Display", textAlign: "justify" }}
-      >
+      <Typography sx={{ fontFamily: "Poppins", fontSize: 18 }}>
         {description}
       </Typography>
     </Box>
@@ -55,7 +54,7 @@ const EmissionsComponent = () => {
   ];
 
   return (
-    <Box sx={{ bgcolor: "#F6F9FD" }}>
+    <Box sx={{ bgcolor: "#F6F9FD", mt: 10 }}>
       <Box display={"flex"} justifyContent={"center"}>
         <CircularEconomy
           //   {...(mdUp
@@ -73,9 +72,9 @@ const EmissionsComponent = () => {
           <Box sx={{ mt: 0 }}>
             <Typography
               sx={{
-                fontFamily: "Wix MadeFor Display",
+                fontFamily: "Poppins",
                 fontWeight: "bold",
-                fontSize: 25,
+                fontSize: 30,
               }}
             >
               Contribution to the United Nation Goals On Sustainable Development
@@ -93,27 +92,21 @@ const EmissionsComponent = () => {
             <Box>
               <Typography
                 sx={{
-                  fontFamily: "Wix MadeFor Display",
+                  fontFamily: "Poppins",
                   fontWeight: "bold",
-                  fontSize: 25,
+                  fontSize: 30,
                 }}
               >
                 Establish sustainable consumption and <br /> production patterns
               </Typography>
             </Box>
 
-            <Grid container sx={{ mt: 3 }}>
+            <Grid container sx={{ mt: 3, p: 0 }}>
               <Grid item md={6} sm={12} xs={12}>
-                <img width={"60%"} src={"/images/contributions/image_1.png"} />
+                <img width={350} src={"/images/contributions/image_1.png"} />
               </Grid>
               <Grid item md={6} sm={12} xs={12}>
-                <Typography
-                  sx={{
-                    fontFamily: "Wix MadeFor Display",
-                    fontSize: 20,
-                    textAlign: "justify",
-                  }}
-                >
+                <Typography sx={{ fontFamily: "Poppins", fontSize: 18 }}>
                   How to achieve sustainable management and rational use of
                   natural resources? How can we reduce food losses throughout
                   the production and supply chain or have rational use of
@@ -146,8 +139,7 @@ const EmissionsComponent = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
-          mt: -10,
+          mt: -5,
         }}
       >
         <CarbonSupplyChain

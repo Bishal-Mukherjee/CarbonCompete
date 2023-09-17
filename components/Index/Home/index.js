@@ -22,7 +22,9 @@ const HomeComponent = () => {
               alignItems: "center",
             }}
           >
-            <Globe width={mdUp ? 450 : 400} height={mdUp ? 450 : 400} />
+            <div id="globe">
+              <Globe width={mdUp ? 450 : 400} height={mdUp ? 450 : 400} />
+            </div>
           </Box>
 
           <Box
@@ -30,35 +32,31 @@ const HomeComponent = () => {
               position: "absolute",
               top: "50%",
               left: "45%",
-              transform: "translate(-50%, -35%)",
+              transform: "translate(-50%, -50%)",
               padding: "10px",
               borderRadius: "5px",
             }}
           >
-            <Stack direction={"row"} spacing={1} alignItems={"center"}>
+            <Stack direction={"row"} spacing={3} alignItems={"center"}>
               <Box>
-                <DownArrow width={mdUp ? 90 : 80} height={90} />
+                <div id="float">
+                  <a href="#carbonintel">
+                    <DownArrow width={mdUp ? 90 : 80} height={90} />
+                  </a>
+                </div>
               </Box>
 
               <Box>
                 <Typography
                   sx={{
                     color: "white",
-                    fontFamily: "Wix MadeFor Display",
-                    fontSize: 30,
-                  }}
-                >
-                  Discover the new
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "white",
-                    fontFamily: "Wix MadeFor Display",
+                    fontFamily: "Poppins",
                     fontWeight: 900,
                     fontSize: 40,
+                    // textAlign: "center",
                   }}
                 >
-                  Carbon accounting <br /> paradigm
+                  A new carbon <br /> accounting paradigm
                 </Typography>
               </Box>
             </Stack>
@@ -82,22 +80,22 @@ const HomeComponent = () => {
               sx={{
                 display: "flex",
                 justifyContent: "center",
-                transform: "translate(0%, -140%)",
+                transform: "translate(0%, -200%)",
                 position: "absolute",
                 width: "100%",
               }}
             >
               <Stack direction={"column"}>
-                <DownArrow width={70} height={70} />
                 <Typography
                   sx={{
-                    fontFamily: "Wix MadeFor Display",
+                    fontFamily: "Poppins",
                     fontWeight: 900,
                     fontSize: 15,
                     color: "#FFFFFF",
+                    textAlign: "center",
                   }}
                 >
-                  Reducing <br /> Carbon <br /> Emissions.
+                  Reducing <br /> Carbon <br /> Emissions
                 </Typography>
               </Stack>
             </Box>

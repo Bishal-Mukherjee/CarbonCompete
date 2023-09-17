@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import styles from "./index.module.css";
 import IndustryChallenge from "../../../assets/svg/mission/industrychallenge.svg";
+import Greenwashing from "../../../assets/svg/greenwashing/greenwashing.svg";
 
 const MissionComponent = () => {
   return (
@@ -14,9 +15,13 @@ const MissionComponent = () => {
         }}
       >
         <Box className={styles.missioncontainer}>
-          <Grid spacing={1} container height={"100%"}>
-            <Grid item md={6} sm={0} xs={0} />
-            <Grid item md={4} sm={12} xs={12}>
+          <Grid
+            spacing={1}
+            container
+            height={"100%"}
+            sx={{ justifyContent: "flex-end", paddingRight: 15 }}
+          >
+            <Grid item md={5} sm={12} xs={12}>
               <Stack
                 direction={"column"}
                 justifyContent={"center"}
@@ -28,7 +33,7 @@ const MissionComponent = () => {
                   sx={{
                     color: "#149BA1",
                     fontSize: "40px",
-                    fontFamily: "Wix MadeFor Display",
+                    fontFamily: "Poppins",
                     fontWeight: 900,
                   }}
                 >
@@ -39,8 +44,7 @@ const MissionComponent = () => {
                   sx={{
                     color: "#FFFFFF",
                     fontSize: 20,
-                    fontFamily: "Wix MadeFor Display",
-                    textAlign: "justify",
+                    fontFamily: "Poppins",
                   }}
                 >
                   CarbonCompete strives to tackle current supply chain
@@ -55,14 +59,15 @@ const MissionComponent = () => {
         </Box>
       </Box>
 
-      <Box sx={{ mt: 50 }}>
-        <Container>
+      <Box sx={{ mt: 60 }}>
+        <Box sx={{ m: 5 }}>
           <Grid
-            spacing={8}
+            spacing={10}
             alignItems={"center"}
             justifyContent={"center"}
             container
             height={"100%"}
+            sx={{ px: 15 }}
           >
             <Grid item md={6} sm={12} xs={12}>
               <Stack
@@ -70,13 +75,13 @@ const MissionComponent = () => {
                 justifyContent={"center"}
                 width={"auto"}
                 height={"100%"}
-                spacing={5}
+                spacing={3}
               >
                 <Typography
                   sx={{
                     color: "#000000",
-                    fontSize: "40px",
-                    fontFamily: "Wix MadeFor Display",
+                    fontSize: 30,
+                    fontFamily: "Poppins",
                     fontWeight: 900,
                   }}
                 >
@@ -87,14 +92,12 @@ const MissionComponent = () => {
                   sx={{
                     color: "#000000",
                     fontSize: 20,
-                    fontFamily: "Wix MadeFor Display",
-                    textAlign: "justify",
+                    fontFamily: "Poppins",
                   }}
                 >
-                  With a pressing need to reach climate goals, growing carbon
-                  conscious customer bases but most importantly, a worsening
-                  climate change, the need to address the following carbon
-                  accounting in the supply chain is imminent.
+                  With a growing carbon conscious customer base as well as an
+                  imminent climate crisis, there is a pressing need to address
+                  carbon accounting in the modern supply chain
                 </Typography>
               </Stack>
             </Grid>
@@ -104,24 +107,26 @@ const MissionComponent = () => {
               md={6}
               sm={0}
               xs={0}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              sx={{ display: "flex", justifyContent: "center" }}
             >
-              <IndustryChallenge viewBox="0 0 800 300" />
+              <IndustryChallenge
+                width={600}
+                height={500}
+                viewBox="0 0 800 500"
+              />
             </Grid>
           </Grid>
-        </Container>
+        </Box>
       </Box>
 
-      <Box sx={{ bgcolor: "#F0F1F2", p: 5 }}>
+      <Box sx={{ bgcolor: "#F0F1F2", py: 5 }}>
         <Grid
-          container
+          spacing={10}
           alignItems={"center"}
           justifyContent={"center"}
-          spacing={5}
+          container
+          height={"100%"}
+          sx={{ px: 15 }}
         >
           <Grid
             item
@@ -132,25 +137,22 @@ const MissionComponent = () => {
               alignItems: "center",
             }}
           >
-            <img
-              src={"/images/greenwashing/greenwashing.png"}
-              style={{ width: 400, height: 400 }}
-            />
+            <Greenwashing width={600} height={400} viewBox="0 0 650 600" />
           </Grid>
 
-          <Grid item md={4} sm={12} xs={12}>
+          <Grid item md={6} sm={12} xs={12}>
             <Stack
               direction={"column"}
               justifyContent={"center"}
               width={"auto"}
               height={"100%"}
-              spacing={5}
+              spacing={3}
             >
               <Typography
                 sx={{
                   color: "#000000",
-                  fontSize: "40px",
-                  fontFamily: "Wix MadeFor Display",
+                  fontSize: 30,
+                  fontFamily: "Poppins",
                   fontWeight: 900,
                 }}
               >
@@ -161,15 +163,14 @@ const MissionComponent = () => {
                 sx={{
                   color: "#000000",
                   fontSize: 20,
-                  fontFamily: "Wix MadeFor Display",
-                  textAlign: "justify",
+                  fontFamily: "Poppins",
                 }}
               >
                 An impending issue in current supply chain is the lack of data
                 integrity. Today’s emissions data lacks reliability, as the
                 ecosystem is not built to verify emissions data in real time.
                 The lack of a trust authority and a standard confidence model
-                allows greenwashing to become prevalent across the ecosystem.
+                allows greenwashing to become prevalent
               </Typography>
             </Stack>
           </Grid>

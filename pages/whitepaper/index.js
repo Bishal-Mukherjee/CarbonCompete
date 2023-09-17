@@ -22,7 +22,24 @@ const StyledButton = styled(Button)(({ theme }) => ({
   width: 100,
   height: 40,
   textTransform: "capitalize",
-  fontFamily: "Wix MadeFor Display",
+  fontFamily: "Poppins",
+}));
+
+const StyledInput = styled(TextField)(({ theme }) => ({
+  "& .MuiInputLabel-root": {
+    fontFamily: "Poppins",
+    fontWeight: 600,
+  },
+  "& label.Mui-focused": {
+    color: "#10a997",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#10a997",
+  },
+  "& .MuiFormHelperText-root": {
+    fontFamily: "Poppins",
+    fontWeight: 500,
+  },
 }));
 
 const WhitepaperComponent = () => {
@@ -93,7 +110,7 @@ const WhitepaperComponent = () => {
             <Typography
               sx={{
                 color: "#FFFFFF",
-                fontFamily: "Wix MadeFor Display",
+                fontFamily: "Poppins",
                 fontWeight: "bold",
                 fontSize: 35,
                 textAlign: "center",
@@ -134,7 +151,7 @@ const WhitepaperComponent = () => {
         <Typography
           textAlign={"center"}
           mt={5}
-          fontFamily={"Wix MadeFor Display"}
+          fontFamily={"Poppins"}
           fontSize={20}
         >
           For further questions, including partnership opportunities, please
@@ -146,37 +163,41 @@ const WhitepaperComponent = () => {
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={5} justifyContent={"center"}>
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"name"}
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 label="Full Name"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 helperText={formik.errors.name && formik.errors.name}
+                multiline
+                rows={2}
               />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"email"}
                 value={formik.values.email}
                 onChange={formik.handleChange}
-                label="Work E-Mail"
-                variant="filled"
+                label="Work Email"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.errors.email && formik.errors.email}
+                multiline
+                rows={2}
               />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"companyname"}
                 value={formik.values.companyname}
                 onChange={formik.handleChange}
                 label="Company Name"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={
                   formik.touched.companyname &&
@@ -185,15 +206,17 @@ const WhitepaperComponent = () => {
                 helperText={
                   formik.errors.companyname && formik.errors.companyname
                 }
+                multiline
+                rows={2}
               />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"phonenumber"}
                 value={formik.values.phonenumber}
                 onChange={formik.handleChange}
                 label="Phone Number"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={
                   formik.touched.phonenumber &&
@@ -202,15 +225,17 @@ const WhitepaperComponent = () => {
                 helperText={
                   formik.errors.phonenumber && formik.errors.phonenumber
                 }
+                multiline
+                rows={2}
               />
             </Grid>
             <Grid item md={12} sm={12} xs={12}>
-              <TextField
+              <StyledInput
                 name={"message"}
                 value={formik.values.message}
                 onChange={formik.handleChange}
                 label="How can we help you?"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 multiline
                 rows={4}
