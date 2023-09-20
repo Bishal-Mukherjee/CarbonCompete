@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import CarbonCompete from "../../assets/svg/footer/footerlogo.svg";
 import FacebookLogo from "../../assets/svg/footer/facebook.svg";
 import LinkedInLogo from "../../assets/svg/footer/linkedin.svg";
-import YoutubeLogo from "../../assets/svg/footer/youtube.svg";
+import TwitterLogo from "../../assets/svg/footer/twitter.svg";
 
 const StyledIcon = styled("div")(({ theme }) => ({
   margin: "auto",
@@ -26,8 +26,14 @@ const FooterComponent = () => {
       icon: <LinkedInLogo />,
       link: "https://www.linkedin.com/company/carboncompete/",
     },
-    { icon: <FacebookLogo />, link: "" },
-    { icon: <YoutubeLogo />, link: "" },
+    {
+      icon: <FacebookLogo />,
+      link: "https://www.facebook.com/people/CarbonCompete/100086638082638/",
+    },
+    {
+      icon: <TwitterLogo />,
+      link: "https://twitter.com/i/flow/login?redirect_after_login=%2Fcarboncompete",
+    },
   ];
 
   const navlinks = [
@@ -123,7 +129,7 @@ const FooterComponent = () => {
             fontFamily={"Poppins"}
             color={"#545C71"}
           >
-            Copyright 2022 sapphire. All right reserved.
+            Copyright 2022 CarbonCompete. All right reserved.
           </Typography>
 
           <Typography

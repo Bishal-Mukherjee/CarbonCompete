@@ -126,8 +126,6 @@ const GetInTouchComponent = () => {
                     sx={{ width: "100%" }}
                     error={formik.touched.name && Boolean(formik.errors.name)}
                     helperText={formik.errors.name && formik.errors.name}
-                    multiline
-                    rows={2}
                   />
                 </Grid>
 
@@ -145,8 +143,6 @@ const GetInTouchComponent = () => {
                     helperText={
                       formik.errors.location && formik.errors.location
                     }
-                    multiline
-                    rows={2}
                   />
                 </Grid>
 
@@ -160,8 +156,6 @@ const GetInTouchComponent = () => {
                     sx={{ width: "100%" }}
                     error={formik.touched.email && Boolean(formik.errors.email)}
                     helperText={formik.errors.email && formik.errors.email}
-                    multiline
-                    rows={2}
                   />
                 </Grid>
 
@@ -180,8 +174,6 @@ const GetInTouchComponent = () => {
                     helperText={
                       formik.errors.phonenumber && formik.errors.phonenumber
                     }
-                    multiline
-                    rows={2}
                   />
                 </Grid>
                 <Grid item md={12} sm={12} xs={12}>

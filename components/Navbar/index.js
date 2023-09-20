@@ -125,7 +125,12 @@ export default function Header({ onOpenNav }) {
             sx={{ justifyContent: "space-evenly", alignItems: "center", px: 5 }}
           >
             <Grid item md={2}>
-              <Box sx={{ cursor: "pointer" }} onClick={() => router.push("/")}>
+              <Box
+                sx={{ cursor: "pointer" }}
+                onClick={() => {
+                  router.push("/");
+                }}
+              >
                 <CarbonCompete viewBox={"0 0 500 80"} />
               </Box>
             </Grid>
@@ -169,7 +174,7 @@ export default function Header({ onOpenNav }) {
             >
               <StyledButton
                 sx={{ border: "1px solid #FFFFFF", width: "auto" }}
-                href="#bookdemo"
+                href="/#bookdemo"
               >
                 Request Demo
               </StyledButton>

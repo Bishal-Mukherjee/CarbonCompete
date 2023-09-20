@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import Whitepaper from "../../assets/svg/whitepaper/whitepaper.svg";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: "#149BA1",
@@ -124,38 +125,38 @@ const WhitepaperComponent = () => {
       </div>
 
       <Container sx={{ transform: "translate(0%, -20%)" }}>
-        <Grid container spacing={3}>
-          {content.map((content, index) => (
-            <Grid item md={4} sm={6} xs={6}>
-              <Card sx={{ height: 300, borderRadius: 0 }}>
-                <CardContent sx={{ height: 240 }}>
-                  <Typography>{content.description}</Typography>
-                </CardContent>
-
-                <CardActions>
-                  <Button
-                    href={content.link}
-                    target="__blank"
-                    sx={{ color: "#000000" }}
-                  >
-                    Read More
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
+        <Grid container spacing={3} sx={{ justifyContent: "center" }}>
+          <Grid item md={4} sm={6} xs={6}>
+            <Card sx={{ height: 400, borderRadius: 0 }}>
+              <CardContent
+                sx={{
+                  display: "flex",
+                  //   justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <Typography sx={{ fontFamily: "Poppins", fontWeight: 600 }}>
+                  Carbon Compete
+                </Typography>
+                <Typography sx={{ fontFamily: "Poppins", fontWeight: 600 }}>
+                  Calculation Methodology
+                </Typography>
+                <Whitepaper />
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
       </Container>
 
       <Container sx={{ mt: -5 }}>
         <Typography
-          textAlign={"center"}
+          textAlign={"left"}
           mt={5}
           fontFamily={"Poppins"}
           fontSize={20}
         >
-          For further questions, including partnership opportunities, please
-          email info@carboncompete.com or contact using our contact form.
+          Enter your details and get Carbon Compete White Paper
         </Typography>
       </Container>
 
@@ -172,8 +173,6 @@ const WhitepaperComponent = () => {
                 sx={{ width: "100%" }}
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 helperText={formik.errors.name && formik.errors.name}
-                multiline
-                rows={2}
               />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
@@ -186,8 +185,6 @@ const WhitepaperComponent = () => {
                 sx={{ width: "100%" }}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.errors.email && formik.errors.email}
-                multiline
-                rows={2}
               />
             </Grid>
 
@@ -206,8 +203,6 @@ const WhitepaperComponent = () => {
                 helperText={
                   formik.errors.companyname && formik.errors.companyname
                 }
-                multiline
-                rows={2}
               />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
@@ -225,8 +220,6 @@ const WhitepaperComponent = () => {
                 helperText={
                   formik.errors.phonenumber && formik.errors.phonenumber
                 }
-                multiline
-                rows={2}
               />
             </Grid>
             <Grid item md={12} sm={12} xs={12}>

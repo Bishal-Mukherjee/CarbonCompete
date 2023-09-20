@@ -22,7 +22,7 @@ import Vision from "../../assets/svg/aboutus/vision.svg";
 import Mission from "../../assets/svg/aboutus/mission.svg";
 
 const JoinUsCard = ({ redirect }) => (
-  <Card>
+  <Card sx={{ height: 480 }}>
     <CardContent sx={{ bgcolor: "#003A3C", height: 310 }}>
       <Typography
         fontFamily={"Poppins"}
@@ -39,7 +39,7 @@ const JoinUsCard = ({ redirect }) => (
       </Typography>
     </CardContent>
 
-    <CardActions sx={{ height: 105 }}>
+    <CardActions sx={{ height: 270 }}>
       <Button
         sx={{
           bgcolor: "#003A3C",
@@ -258,42 +258,9 @@ const AboutusComponent = () => {
             </Stack>
           </Grid>
         </Grid>
-
-        <Grid
-          container
-          spacing={5}
-          sx={{ alignItems: "center", justifyContent: "center" }}
-        >
-          <Grid item md={6} sm={12} xs={12}>
-            <Stack direction={"column"} spacing={3}>
-              <Typography fontFamily={"Poppins"} fontWeight={900} fontSize={30}>
-                Mission
-              </Typography>
-              <Typography fontFamily={"Poppins"} fontWeight={500} fontSize={18}>
-                Our missions is to drive behavioral change through product level
-                carbon accounting. We want to provide a comprehensive model for
-                how climate responsibility is attributed at the level of the
-                consumer.
-              </Typography>
-            </Stack>
-          </Grid>
-          <Grid
-            item
-            md={6}
-            sm={12}
-            xs={12}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Mission />
-          </Grid>
-        </Grid>
       </Box>
 
-      <Box sx={{ px: 15 }}>
+      <Box sx={{ px: 15, mt: 10 }}>
         <Typography
           fontFamily={"Poppins"}
           fontWeight={900}
@@ -303,8 +270,8 @@ const AboutusComponent = () => {
           Meet our team
         </Typography>
 
-        <Grid container spacing={4} sx={{ mt: 2 }}>
-          <Grid item md={4} sm={12} xs={12}>
+        <Grid container spacing={4} sx={{ mt: 5 }}>
+          <Grid item md={3} sm={12} xs={12}>
             <Stack sx={{ height: "100%" }} direction={"column"} spacing={5}>
               <Box sx={{ height: "100%" }}>
                 <Box
@@ -363,19 +330,6 @@ const AboutusComponent = () => {
                           fontFamily={"Poppins"}
                           fontWeight={900}
                         >
-                          Call Us:
-                        </Typography>
-                        <Typography color={"#152935"} fontFamily={"Poppins"}>
-                          9486084342
-                        </Typography>
-                      </Box>
-
-                      <Box>
-                        <Typography
-                          color={"#152935"}
-                          fontFamily={"Poppins"}
-                          fontWeight={900}
-                        >
                           Mail Us:
                         </Typography>
                         <Typography color={"#152935"} fontFamily={"Poppins"}>
@@ -389,14 +343,14 @@ const AboutusComponent = () => {
             </Stack>
           </Grid>
 
-          <Grid item md={8} sm={12} xs={12}>
+          <Grid item md={9} sm={12} xs={12}>
             <Grid container spacing={1}>
               {members.map((member, index) => (
-                <Grid item md={4} sm={12} xs={12} key={index}>
+                <Grid item md={3} sm={12} xs={12} key={index}>
                   <MemberCard {...member} />
                 </Grid>
               ))}
-              <Grid item md={4} sm={12} xs={12}>
+              <Grid item md={3} sm={12} xs={12}>
                 <JoinUsCard redirect={() => router.push("/contact")} />
               </Grid>
             </Grid>

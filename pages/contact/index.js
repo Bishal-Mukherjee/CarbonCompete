@@ -192,8 +192,6 @@ const ContactComponent = () => {
                 sx={{ width: "100%" }}
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 helperText={formik.errors.name && formik.errors.name}
-                multiline
-                rows={2}
               />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
@@ -206,8 +204,6 @@ const ContactComponent = () => {
                 sx={{ width: "100%" }}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.errors.email && formik.errors.email}
-                multiline
-                rows={2}
               />
             </Grid>
 
@@ -226,8 +222,6 @@ const ContactComponent = () => {
                 helperText={
                   formik.errors.companyname && formik.errors.companyname
                 }
-                multiline
-                rows={2}
               />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
@@ -245,8 +239,6 @@ const ContactComponent = () => {
                 helperText={
                   formik.errors.phonenumber && formik.errors.phonenumber
                 }
-                multiline
-                rows={2}
               />
             </Grid>
             <Grid item md={12} sm={12} xs={12}>
