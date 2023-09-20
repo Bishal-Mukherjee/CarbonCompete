@@ -19,11 +19,10 @@ import { Icon } from "@iconify/react";
 import useResponsive from "../../hooks/useResponsive";
 import BusinessModel from "../../assets/svg/aboutus/businessmodel.svg";
 import Vision from "../../assets/svg/aboutus/vision.svg";
-import Mission from "../../assets/svg/aboutus/mission.svg";
 
 const JoinUsCard = ({ redirect }) => (
-  <Card sx={{ height: 480 }}>
-    <CardContent sx={{ bgcolor: "#003A3C", height: 310 }}>
+  <Card sx={{ height: 360 }}>
+    <CardContent sx={{ bgcolor: "#003A3C", height: 210 }}>
       <Typography
         fontFamily={"Poppins"}
         gutterBottom
@@ -39,7 +38,7 @@ const JoinUsCard = ({ redirect }) => (
       </Typography>
     </CardContent>
 
-    <CardActions sx={{ height: 270 }}>
+    <CardActions sx={{ height: 250 }}>
       <Button
         sx={{
           bgcolor: "#003A3C",
@@ -58,16 +57,11 @@ const JoinUsCard = ({ redirect }) => (
 );
 
 const MemberCard = ({ name, image, designation, email, linkedIn }) => (
-  <Card sx={{ height: 480 }}>
-    <CardMedia component="img" height="300" image={image} alt={name} />
+  <Card sx={{ height: 360 }}>
+    <CardMedia component="img" height="210" image={image} alt={name} />
 
     <CardContent>
-      <Typography
-        fontFamily={"Poppins"}
-        gutterBottom
-        variant="h6"
-        component="div"
-      >
+      <Typography fontFamily={"Poppins"} gutterBottom component="div">
         {name}
       </Typography>
 
@@ -121,7 +115,7 @@ const AboutusComponent = () => {
     {
       name: "Sunder Kannan ",
       image:
-        "https://www.dropbox.com/scl/fi/z3yide4bg9j4krkmzyx9x/sunderkannan.jpg?rlkey=cohjnplfghu2nwajjsabuepvl&dl=0&raw=1",
+        "https://www.dropbox.com/scl/fi/in7mb1b5s46akhnvc7dul/sunderkannan.png?rlkey=vb4svj3t2i1xhe5vmobcw76zi&dl=0&raw=1",
       designation: "Founder & CEO",
       email: "",
       linkedIn: "",
@@ -129,7 +123,7 @@ const AboutusComponent = () => {
     {
       name: "Augusto Piazza",
       image:
-        "https://www.dropbox.com/scl/fi/f59j0515x7249ojolr8wy/augustopiazza.jpg?rlkey=u3w6spnwnqhaxsxyffr09u21j&dl=0&raw=1",
+        "https://www.dropbox.com/scl/fi/j0mc6e18f0s0qr712dj4m/augustopiazza.png?rlkey=g8tivm6m37syinorye6c7ifn5&dl=0&raw=1",
       designation: "Co-Founder & CFO",
       email: "",
       linkedIn: "",
@@ -137,7 +131,7 @@ const AboutusComponent = () => {
     {
       name: "Dr. Vishwakarma J S",
       image:
-        "https://www.dropbox.com/scl/fi/8adlvrgwbfja90kbzwwv0/jai.jpg?rlkey=rwa9o6rj0liwv8jufdbqo6f2v&dl=0&raw=1",
+        "https://www.dropbox.com/scl/fi/8clgagdxubsbyw5i5ri2u/jai.png?rlkey=o0mkn1scj6ndiala94a6kl5h9&dl=0&raw=1",
       designation: "CTO",
       email: "",
       linkedIn: "",

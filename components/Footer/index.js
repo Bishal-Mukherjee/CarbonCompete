@@ -129,7 +129,7 @@ const FooterComponent = () => {
             fontFamily={"Poppins"}
             color={"#545C71"}
           >
-            Copyright 2022 CarbonCompete. All right reserved.
+            Copyright 2023 CarbonCompete. All right reserved.
           </Typography>
 
           <Typography
