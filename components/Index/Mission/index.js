@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import styles from "./index.module.css";
 import IndustryChallenge from "../../../assets/svg/mission/industrychallenge.svg";
@@ -107,7 +107,12 @@ const MissionComponent = () => {
               md={6}
               sm={0}
               xs={0}
-              sx={{ display: "flex", justifyContent: "center" }}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                mt: 5,
+              }}
             >
               <IndustryChallenge
                 width={600}

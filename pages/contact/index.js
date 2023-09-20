@@ -10,7 +10,6 @@ import {
   TextField,
   styled,
 } from "@mui/material";
-import { Icon } from "@iconify/react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
@@ -24,40 +23,22 @@ const StyledButton = styled(Button)(({ theme }) => ({
   fontFamily: "Poppins",
 }));
 
-const ContactCard = ({ icon, label, details }) => (
-  <Box sx={{ height: 170 }}>
-    <Stack direction={"column"} alignItems={"center"} spacing={3}>
-      <Box height={30}>
-        <Icon icon={icon} color={"#05D776"} width={50} />
-      </Box>
-
-      <Box height={25}>
-        <Typography
-          sx={{
-            fontFamily: "Poppins",
-            fontWeight: "bold",
-            fontSize: 25,
-          }}
-        >
-          {label}
-        </Typography>
-      </Box>
-
-      <Box height={5}>
-        <Typography
-          sx={{
-            textAlign: "center",
-            fontFamily: "Poppins",
-            fontWeight: "light",
-            fontSize: 15,
-          }}
-        >
-          {details}
-        </Typography>
-      </Box>
-    </Stack>
-  </Box>
-);
+const StyledInput = styled(TextField)(({ theme }) => ({
+  "& .MuiInputLabel-root": {
+    fontFamily: "Poppins",
+    fontWeight: 600,
+  },
+  "& label.Mui-focused": {
+    color: "#10a997",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#10a997",
+  },
+  "& .MuiFormHelperText-root": {
+    fontFamily: "Poppins",
+    fontWeight: 500,
+  },
+}));
 
 const ContactComponent = () => {
   const validationSchema = yup.object({
@@ -202,37 +183,41 @@ const ContactComponent = () => {
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={5} justifyContent={"center"}>
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"name"}
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 label="Full Name"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 helperText={formik.errors.name && formik.errors.name}
+                multiline
+                rows={2}
               />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"email"}
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 label="Work E-Mail"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.errors.email && formik.errors.email}
+                multiline
+                rows={2}
               />
             </Grid>
 
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"companyname"}
                 value={formik.values.companyname}
                 onChange={formik.handleChange}
                 label="Company Name"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={
                   formik.touched.companyname &&
@@ -241,15 +226,17 @@ const ContactComponent = () => {
                 helperText={
                   formik.errors.companyname && formik.errors.companyname
                 }
+                multiline
+                rows={2}
               />
             </Grid>
             <Grid item md={6} sm={6} xs={12}>
-              <TextField
+              <StyledInput
                 name={"phonenumber"}
                 value={formik.values.phonenumber}
                 onChange={formik.handleChange}
                 label="Phone Number"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 error={
                   formik.touched.phonenumber &&
@@ -258,15 +245,17 @@ const ContactComponent = () => {
                 helperText={
                   formik.errors.phonenumber && formik.errors.phonenumber
                 }
+                multiline
+                rows={2}
               />
             </Grid>
             <Grid item md={12} sm={12} xs={12}>
-              <TextField
+              <StyledInput
                 name={"message"}
                 value={formik.values.message}
                 onChange={formik.handleChange}
                 label="How can we help you?"
-                variant="filled"
+                variant="standard"
                 sx={{ width: "100%" }}
                 multiline
                 rows={4}

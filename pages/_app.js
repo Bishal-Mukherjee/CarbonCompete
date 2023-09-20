@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <StyledRoot>
         <Header />
-        {/* <ScrollToTop /> */}
+        <ScrollToTop />
         <Main>
           <Component {...pageProps} />
         </Main>

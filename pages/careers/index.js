@@ -16,7 +16,9 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import Lottie from "react-lottie";
 import { FileUploader } from "react-drag-drop-files";
+import * as ComingSoon from "../../assets/animations/comingsoon.json";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: "#149BA1",
@@ -126,7 +128,7 @@ const CareersComponent = () => {
   return (
     <Box>
       <div className={"container"}>
-        <Box>
+        {/* <Box>
           <Stack
             direction={"column"}
             spacing={5}
@@ -146,10 +148,45 @@ const CareersComponent = () => {
               We're more than just a workplace. <br /> We're a family.
             </Typography>
           </Stack>
-        </Box>
+        </Box> */}
+
+        <Container
+          sx={{
+            height: "20vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Lottie
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: ComingSoon,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice",
+              },
+            }}
+            height={200}
+            width={800}
+            isStopped={false}
+            isPaused={false}
+          />
+        </Container>
       </div>
 
-      <Container sx={{ transform: "translate(0%, -20%)" }}>
+      {/* <Container
+        sx={{
+          mt: 50,
+          height: "50vh",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Typography> Resources </Typography>
+      </Container> */}
+
+      {/* <Container sx={{ transform: "translate(0%, -20%)" }}>
         <Grid container spacing={3}>
           {jobopenings.map((job, index) => (
             <Grid item md={4} sm={6} xs={6}>
@@ -196,9 +233,9 @@ const CareersComponent = () => {
           Register Here and get notified when new roles that <br /> match your
           skills open up.
         </Typography>
-      </Container>
+      </Container> */}
 
-      <Container sx={{ mt: 10 }} id="jobopeningform">
+      {/* <Container sx={{ mt: 10 }} id="jobopeningform">
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={5} justifyContent={"center"}>
             <Grid item md={6} sm={6} xs={12}>
@@ -335,7 +372,7 @@ const CareersComponent = () => {
             <StyledButton type="submit">Apply</StyledButton>
           </Box>
         </form>
-      </Container>
+      </Container> */}
     </Box>
   );
 };

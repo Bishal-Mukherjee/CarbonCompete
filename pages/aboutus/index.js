@@ -58,14 +58,14 @@ const JoinUsCard = ({ redirect }) => (
 );
 
 const MemberCard = ({ name, image, designation, email, linkedIn }) => (
-  <Card>
-    <CardMedia component="img" height="250" image={image} alt={name} />
+  <Card sx={{ height: 480 }}>
+    <CardMedia component="img" height="300" image={image} alt={name} />
 
     <CardContent>
       <Typography
         fontFamily={"Poppins"}
         gutterBottom
-        variant="h5"
+        variant="h6"
         component="div"
       >
         {name}
@@ -121,7 +121,7 @@ const AboutusComponent = () => {
     {
       name: "Sunder Kannan ",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png",
+        "https://www.dropbox.com/scl/fi/z3yide4bg9j4krkmzyx9x/sunderkannan.jpg?rlkey=cohjnplfghu2nwajjsabuepvl&dl=0&raw=1",
       designation: "Founder & CEO",
       email: "",
       linkedIn: "",
@@ -129,7 +129,7 @@ const AboutusComponent = () => {
     {
       name: "Augusto Piazza",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png",
+        "https://www.dropbox.com/scl/fi/f59j0515x7249ojolr8wy/augustopiazza.jpg?rlkey=u3w6spnwnqhaxsxyffr09u21j&dl=0&raw=1",
       designation: "Co-Founder & CFO",
       email: "",
       linkedIn: "",
@@ -137,7 +137,7 @@ const AboutusComponent = () => {
     {
       name: "Dr. Vishwakarma J S",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png",
+        "https://www.dropbox.com/scl/fi/8adlvrgwbfja90kbzwwv0/jai.jpg?rlkey=rwa9o6rj0liwv8jufdbqo6f2v&dl=0&raw=1",
       designation: "CTO",
       email: "",
       linkedIn: "",
