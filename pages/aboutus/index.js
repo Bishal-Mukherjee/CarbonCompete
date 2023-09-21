@@ -8,7 +8,6 @@ import {
   Paper,
   Stack,
   Typography,
-  FormHelperText,
   Card,
   CardContent,
   CardMedia,
@@ -21,7 +20,7 @@ import BusinessModel from "../../assets/svg/aboutus/businessmodel.svg";
 import Vision from "../../assets/svg/aboutus/vision.svg";
 
 const JoinUsCard = ({ redirect }) => (
-  <Card sx={{ height: 360 }}>
+  <Card sx={{ height: 360, borderRadius: 0 }}>
     <CardContent sx={{ bgcolor: "#003A3C", height: 210 }}>
       <Typography
         fontFamily={"Poppins"}
@@ -57,7 +56,7 @@ const JoinUsCard = ({ redirect }) => (
 );
 
 const MemberCard = ({ name, image, designation, email, linkedIn }) => (
-  <Card sx={{ height: 360 }}>
+  <Card sx={{ height: 360, borderRadius: 0 }}>
     <CardMedia component="img" height="210" image={image} alt={name} />
 
     <CardContent>
@@ -76,7 +75,7 @@ const MemberCard = ({ name, image, designation, email, linkedIn }) => (
           <Icon icon={"ic:round-mail"} width={25} />
         </IconButton>
 
-        <IconButton href={linkedIn}>
+        <IconButton href={linkedIn} target="__blank">
           <Icon icon={"mdi:linkedin"} width={25} />
         </IconButton>
       </Stack>
@@ -84,28 +83,28 @@ const MemberCard = ({ name, image, designation, email, linkedIn }) => (
   </Card>
 );
 
-const ContentSegment = ({ header, pdescription, sdescription }) => (
-  <Box>
-    <Stack direction={"column"} justifyContent={"center"}>
-      <Typography
-        fontFamily={"Poppins"}
-        fontWeight={900}
-        fontSize={30}
-        color={"#082930"}
-      >
-        {header}
-      </Typography>
+// const ContentSegment = ({ header, pdescription, sdescription }) => (
+//   <Box>
+//     <Stack direction={"column"} justifyContent={"center"}>
+//       <Typography
+//         fontFamily={"Poppins"}
+//         fontWeight={900}
+//         fontSize={30}
+//         color={"#082930"}
+//       >
+//         {header}
+//       </Typography>
 
-      <Typography sx={{ mt: 2 }} fontFamily={"Poppins"} fontSize={20}>
-        {pdescription}
-      </Typography>
+//       <Typography sx={{ mt: 2 }} fontFamily={"Poppins"} fontSize={20}>
+//         {pdescription}
+//       </Typography>
 
-      <Typography sx={{ mt: 2 }} fontFamily={"Poppins"} fontSize={20}>
-        {sdescription}
-      </Typography>
-    </Stack>
-  </Box>
-);
+//       <Typography sx={{ mt: 2 }} fontFamily={"Poppins"} fontSize={20}>
+//         {sdescription}
+//       </Typography>
+//     </Stack>
+//   </Box>
+// );
 
 const AboutusComponent = () => {
   const mdUp = useResponsive("up", "md");
@@ -117,24 +116,24 @@ const AboutusComponent = () => {
       image:
         "https://www.dropbox.com/scl/fi/in7mb1b5s46akhnvc7dul/sunderkannan.png?rlkey=vb4svj3t2i1xhe5vmobcw76zi&dl=0&raw=1",
       designation: "Founder & CEO",
-      email: "",
-      linkedIn: "",
+      email: "sundar@carboncompete.com",
+      linkedIn: "https://www.linkedin.com/in/sundar-kannan-494b072/",
     },
     {
       name: "Augusto Piazza",
       image:
         "https://www.dropbox.com/scl/fi/j0mc6e18f0s0qr712dj4m/augustopiazza.png?rlkey=g8tivm6m37syinorye6c7ifn5&dl=0&raw=1",
       designation: "Co-Founder & CFO",
-      email: "",
-      linkedIn: "",
+      email: "Augusto@carboncompete.com",
+      linkedIn: "https://www.linkedin.com/in/augusto-piazza-7892052b/",
     },
     {
       name: "Dr. Vishwakarma J S",
       image:
         "https://www.dropbox.com/scl/fi/8clgagdxubsbyw5i5ri2u/jai.png?rlkey=o0mkn1scj6ndiala94a6kl5h9&dl=0&raw=1",
       designation: "CTO",
-      email: "",
-      linkedIn: "",
+      email: "jai@carboncompete.com",
+      linkedIn: "https://www.linkedin.com/in/vishwakarmajs/",
     },
   ];
 
@@ -326,7 +325,12 @@ const AboutusComponent = () => {
                         >
                           Mail Us:
                         </Typography>
-                        <Typography color={"#152935"} fontFamily={"Poppins"}>
+                        <Typography
+                          component={"a"}
+                          href="mailto:info@carboncompete.com"
+                          color={"#152935"}
+                          fontFamily={"Poppins"}
+                        >
                           info@carboncompete.com
                         </Typography>
                       </Box>

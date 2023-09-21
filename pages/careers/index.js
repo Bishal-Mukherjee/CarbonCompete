@@ -168,12 +168,23 @@ const CareersComponent = () => {
               },
             }}
             height={200}
-            width={800}
+            width={1000}
             isStopped={false}
             isPaused={false}
           />
         </Container>
       </div>
+
+      <Typography
+        sx={{
+          textAlign: "center",
+          mt: 5,
+          fontFamily: "Poppins",
+          fontWeight: 700,
+        }}
+      >
+        Coming soon. Stay tuned!
+      </Typography>
 
       {/* <Container
         sx={{

@@ -54,7 +54,7 @@ const FooterComponent = () => {
           alignItems={"center"}
           justifyContent={"space-between"}
         >
-          <Grid item md={8} sm={12} xs={12}>
+          <Grid item md={9} sm={12} xs={12}>
             <Stack direction={"column"} spacing={4}>
               <Box>
                 <CarbonCompete />
@@ -91,7 +91,7 @@ const FooterComponent = () => {
 
           <Grid
             item
-            md={4}
+            md={3}
             sm={12}
             xs={12}
             sx={{ display: "flex", justifyContent: "center" }}

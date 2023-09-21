@@ -126,7 +126,7 @@ const WhitepaperComponent = () => {
 
       <Container sx={{ transform: "translate(0%, -20%)" }}>
         <Grid container spacing={3} sx={{ justifyContent: "center" }}>
-          <Grid item md={4} sm={6} xs={6}>
+          <Grid item md={6} sm={6} xs={6}>
             <Card sx={{ height: 400, borderRadius: 0 }}>
               <CardContent
                 sx={{
