@@ -1,19 +1,20 @@
 import React from "react";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
-import Accounting from "../../../assets/svg/accounting/accounting.svg";
-import Automation from "../../../assets/svg/automation/automation.svg";
+import Lottie from "react-lottie";
+import GreenWashing from "../../../assets/animations/lackofaccounting.json";
+import Automation from "../../../assets/animations/lackofautomation.json";
 
 const FeaturesComponent = () => {
   return (
     <>
-      <Box sx={{ m: 5 }}>
+      <Box sx={{ mt: 10 }}>
         <Grid
           spacing={10}
           alignItems={"center"}
           justifyContent={"center"}
           container
           height={"100%"}
-          sx={{ px: 15 }}
+          sx={{ px: 15, bgcolor: "#ffffff" }}
         >
           <Grid item md={6} sm={12} xs={12}>
             <Stack
@@ -59,12 +60,25 @@ const FeaturesComponent = () => {
               alignItems: "center",
             }}
           >
-            <Accounting width={600} height={400} viewBox="0 0 600 650" />
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: GreenWashing,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+              height={400}
+              width={400}
+              isStopped={false}
+              isPaused={false}
+            />
           </Grid>
         </Grid>
       </Box>
 
-      <Box sx={{ p: 5, bgcolor: "#F0F1F2" }}>
+      <Box sx={{ p: 5, bgcolor: "#ffffff" }}>
         <Grid
           spacing={10}
           alignItems={"center"}
@@ -85,7 +99,20 @@ const FeaturesComponent = () => {
               height: 450,
             }}
           >
-            <Automation width={650} height={400} viewBox="0 0 1000 700" />
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: Automation,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+              height={400}
+              width={400}
+              isStopped={false}
+              isPaused={false}
+            />
           </Grid>
 
           <Grid item md={6} sm={12} xs={12}>

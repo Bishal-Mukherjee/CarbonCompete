@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import {
+  Alert,
   Box,
   Button,
   Container,
+  CircularProgress,
   Grid,
-  Paper,
   Stack,
   Typography,
   TextField,
@@ -12,12 +13,13 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { contactUsReq } from "../../services/apis";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: "#149BA1",
   border: "1px solid #149BA1",
   borderRadius: 0,
-  width: 100,
+  width: 110,
   height: 40,
   textTransform: "capitalize",
   fontFamily: "Poppins",
@@ -41,6 +43,11 @@ const StyledInput = styled(TextField)(({ theme }) => ({
 }));
 
 const ContactComponent = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState({
+    type: "",
+    text: "",
+  });
   const validationSchema = yup.object({
     name: yup
       .string()
@@ -59,6 +66,7 @@ const ContactComponent = () => {
       .string()
       .matches(/^[1-9][0-9]{9}$/, "Invalid phone number")
       .required("*required"),
+    message: yup.string().required("*required"),
   });
 
   const formik = useFormik({
@@ -70,32 +78,33 @@ const ContactComponent = () => {
       phonenumber: "",
       message: "",
     },
-    onSubmit: () => {
+    onSubmit: async () => {
       try {
-        console.log(formik.values);
+        setIsLoading(true);
+        const response = await contactUsReq({ ...formik.values });
+        setIsLoading(false);
+        if (response.message === "success") {
+          setMessage({
+            type: "success",
+            text: "Your response was saved. We will reach out to you soon!",
+          });
+        } else {
+          setMessage({
+            type: "error",
+            text: "Error! Please try again",
+          });
+        }
       } catch (err) {
         console.log(err.message);
+        setIsLoading(false);
+        setMessage({
+          type: "error",
+          text: "Error! Please try again",
+        });
       }
     },
   });
 
-  const contactcard = [
-    {
-      icon: "mingcute:phone-call-line",
-      label: "Call Us",
-      details: "9486084342",
-    },
-    {
-      icon: "tabler:mail",
-      label: "Mail Us",
-      details: "info@carboncompete.com",
-    },
-    {
-      icon: "fluent:location-28-regular",
-      label: "Location",
-      details: "5, 8th Floor, RR Tower, Guindy, Chennai, 600032",
-    },
-  ];
   return (
     <Box>
       <Box className={"container"}>
@@ -251,12 +260,35 @@ const ContactComponent = () => {
                 sx={{ width: "100%" }}
                 multiline
                 rows={4}
+                error={formik.touched.message && Boolean(formik.errors.message)}
+                helperText={formik.errors.message && formik.errors.message}
               />
             </Grid>
           </Grid>
 
           <Box sx={{ mt: 5 }}>
-            <StyledButton type="submit">Contact</StyledButton>
+            <StyledButton type="submit" disabled={isLoading}>
+              <Stack
+                direction={"row"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                spacing={1}
+              >
+                {isLoading && (
+                  <CircularProgress size={18} sx={{ color: "#149BA1" }} />
+                )}
+                <span>Contact</span>
+              </Stack>
+            </StyledButton>
+
+            {message.type && (
+              <Alert
+                severity={message.type}
+                sx={{ mt: 1, fontFamily: "Poppins" }}
+              >
+                {message.text}
+              </Alert>
+            )}
           </Box>
         </form>
       </Container>

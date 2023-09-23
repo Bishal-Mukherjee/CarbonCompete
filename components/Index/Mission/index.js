@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import Lottie from "react-lottie";
 import styles from "./index.module.css";
-import IndustryChallenge from "../../../assets/svg/mission/industrychallenge.svg";
-import Greenwashing from "../../../assets/svg/greenwashing/greenwashing.svg";
+import IndustryChallenge from "../../../assets/animations/industrychallenge.json";
+import GreenWashing from "../../../assets/animations/greenwashing.json";
 
 const MissionComponent = () => {
   return (
@@ -60,14 +61,14 @@ const MissionComponent = () => {
       </Box>
 
       <Box sx={{ mt: 60 }}>
-        <Box sx={{ m: 5 }}>
+        <Box sx={{ mt: 5 }}>
           <Grid
             spacing={10}
             alignItems={"center"}
             justifyContent={"center"}
             container
             height={"100%"}
-            sx={{ px: 15 }}
+            sx={{ px: 15, bgcolor: "#ffffff" }}
           >
             <Grid item md={6} sm={12} xs={12}>
               <Stack
@@ -114,17 +115,31 @@ const MissionComponent = () => {
                 mt: 5,
               }}
             >
-              <IndustryChallenge
+              <Lottie
+                options={{
+                  loop: true,
+                  autoplay: true,
+                  animationData: IndustryChallenge,
+                  rendererSettings: {
+                    preserveAspectRatio: "xMidYMid slice",
+                  },
+                }}
+                height={400}
+                width={500}
+                isStopped={false}
+                isPaused={false}
+              />
+              {/* <IndustryChallenge
                 width={600}
                 height={500}
                 viewBox="0 0 800 500"
-              />
+              /> */}
             </Grid>
           </Grid>
         </Box>
       </Box>
 
-      <Box sx={{ bgcolor: "#F0F1F2", py: 5 }}>
+      <Box sx={{ bgcolor: "#d3d3d3", py: 5 }}>
         <Grid
           spacing={10}
           alignItems={"center"}
@@ -142,7 +157,21 @@ const MissionComponent = () => {
               alignItems: "center",
             }}
           >
-            <Greenwashing width={600} height={400} viewBox="0 0 650 600" />
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: GreenWashing,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+              height={400}
+              width={400}
+              isStopped={false}
+              isPaused={false}
+            />
+            {/* <Greenwashing width={600} height={400} viewBox="0 0 650 600" /> */}
           </Grid>
 
           <Grid item md={6} sm={12} xs={12}>

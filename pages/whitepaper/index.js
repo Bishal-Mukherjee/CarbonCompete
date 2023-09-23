@@ -1,26 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import {
+  Alert,
   Box,
   Typography,
   Stack,
   Button,
   Container,
+  CircularProgress,
   Grid,
   TextField,
   Card,
   CardContent,
-  CardActions,
   styled,
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Whitepaper from "../../assets/svg/whitepaper/whitepaper.svg";
+import { whitepaperDownloadReq } from "../../services/apis";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: "#149BA1",
   border: "1px solid #149BA1",
   borderRadius: 0,
-  width: 100,
+  width: 110,
   height: 40,
   textTransform: "capitalize",
   fontFamily: "Poppins",
@@ -44,6 +46,12 @@ const StyledInput = styled(TextField)(({ theme }) => ({
 }));
 
 const WhitepaperComponent = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState({
+    type: "",
+    text: "",
+  });
+  const [downloadLink, setDownloadLink] = useState("");
   const validationSchema = yup.object({
     name: yup
       .string()
@@ -62,6 +70,7 @@ const WhitepaperComponent = () => {
       .string()
       .matches(/^[1-9][0-9]{9}$/, "Invalid phone number")
       .required("*required"),
+    message: yup.string().required("*required"),
   });
 
   const formik = useFormik({
@@ -73,29 +82,32 @@ const WhitepaperComponent = () => {
       phonenumber: "",
       message: "",
     },
-    onSubmit: () => {
+    onSubmit: async () => {
       try {
-        console.log(formik.values);
+        setIsLoading(true);
+        const response = await whitepaperDownloadReq({ ...formik.values });
+        setIsLoading(false);
+        if (response.message === "success") {
+          setMessage({
+            type: "success",
+            text: "Thank you for showing your interest!",
+          });
+          setDownloadLink(response.downloadurl);
+        } else {
+          setMessage({
+            type: "error",
+            text: "Error! Please try again",
+          });
+        }
       } catch (err) {
-        console.log(err.message);
+        setIsLoading(false);
+        setMessage({
+          type: "error",
+          text: "Error! Please try again",
+        });
       }
     },
   });
-
-  const content = [
-    {
-      description: "Carbon compete Calculating methodology",
-      link: "https://www.dropbox.com/scl/fi/2giukk3y3lbpwfonsi5gs/Whitepaper.pdf?rlkey=qmnpfkq8n89shdesnp35s14cy&dl=0&raw=1",
-    },
-    {
-      description: "Carbon compete Calculating methodology",
-      link: "https://www.dropbox.com/scl/fi/2giukk3y3lbpwfonsi5gs/Whitepaper.pdf?rlkey=qmnpfkq8n89shdesnp35s14cy&dl=0&raw=1",
-    },
-    {
-      description: "Carbon compete Calculating methodology",
-      link: "https://www.dropbox.com/scl/fi/2giukk3y3lbpwfonsi5gs/Whitepaper.pdf?rlkey=qmnpfkq8n89shdesnp35s14cy&dl=0&raw=1",
-    },
-  ];
 
   return (
     <Box>
@@ -137,7 +149,7 @@ const WhitepaperComponent = () => {
                 }}
               >
                 <Typography sx={{ fontFamily: "Poppins", fontWeight: 600 }}>
-                  Carbon Compete
+                  CarbonCompete
                 </Typography>
                 <Typography sx={{ fontFamily: "Poppins", fontWeight: 600 }}>
                   Calculation Methodology
@@ -156,7 +168,7 @@ const WhitepaperComponent = () => {
           fontFamily={"Poppins"}
           fontSize={20}
         >
-          Enter your details and get Carbon Compete White Paper
+          Enter your details and get CarbonCompete White Paper
         </Typography>
       </Container>
 
@@ -232,13 +244,53 @@ const WhitepaperComponent = () => {
                 sx={{ width: "100%" }}
                 multiline
                 rows={4}
+                error={formik.touched.message && Boolean(formik.errors.message)}
+                helperText={formik.errors.message && formik.errors.message}
               />
             </Grid>
           </Grid>
 
-          <Box sx={{ mt: 5 }}>
-            <StyledButton type="submit">Submit</StyledButton>
-          </Box>
+          <Stack direction={"row"} spacing={2} sx={{ mt: 5 }}>
+            <StyledButton type="submit">
+              <Stack
+                direction={"row"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                spacing={1}
+              >
+                {isLoading && (
+                  <CircularProgress size={18} sx={{ color: "#149BA1" }} />
+                )}
+                <span>Submit</span>
+              </Stack>
+            </StyledButton>
+
+            {downloadLink && (
+              <StyledButton
+                sx={{
+                  bgcolor: "#149BA1",
+                  color: "#ffffff",
+                  ":hover": {
+                    bgcolor: "#ffffff",
+                    color: "#149BA1",
+                  },
+                }}
+                href={downloadLink}
+                target="__blank"
+              >
+                Download
+              </StyledButton>
+            )}
+          </Stack>
+
+          {message.type && (
+            <Alert
+              severity={message.type}
+              sx={{ mt: 1, fontFamily: "Poppins" }}
+            >
+              {message.text}
+            </Alert>
+          )}
         </form>
       </Container>
     </Box>

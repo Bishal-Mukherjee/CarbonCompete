@@ -9,9 +9,10 @@ import {
   styled,
   Link,
 } from "@mui/material";
+import Lottie from "react-lottie";
 import useResponsive from "../../../hooks/useResponsive";
 import CarbonIntelDevice from "../../../assets/svg/carbonintel/device.svg";
-import FeaturesGraph from "../../../assets/svg/features/features.svg";
+import Features from "../../../assets/animations/features.json";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: "#159BA1",
@@ -164,7 +165,12 @@ const GoalsComponent = () => {
         </Container>
 
         <Container
-          sx={{ mt: 20, overflow: "hidden", justifyContent: "center" }}
+          sx={{
+            mt: 20,
+            overflow: "hidden",
+            justifyContent: "center",
+            bgcolor: "#ffffff",
+          }}
         >
           <Typography
             sx={{
@@ -172,6 +178,7 @@ const GoalsComponent = () => {
               fontSize: 25,
               fontFamily: "Poppins",
               fontWeight: 900,
+              mt: 10,
             }}
           >
             Our Features
@@ -183,7 +190,21 @@ const GoalsComponent = () => {
             </Grid>
 
             <Grid item md={8} sx={{ height: 400, mt: -10 }}>
-              <FeaturesGraph width={900} height={610} viewBox="0 0 800 1000" />
+              <Lottie
+                options={{
+                  loop: true,
+                  autoplay: true,
+                  animationData: Features,
+                  rendererSettings: {
+                    preserveAspectRatio: "xMidYMid slice",
+                  },
+                }}
+                height={410}
+                width={470}
+                isStopped={false}
+                isPaused={false}
+              />
+              {/* <FeaturesGraph width={900} height={610} viewBox="0 0 800 1000" /> */}
             </Grid>
           </Grid>
 
