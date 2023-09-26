@@ -88,6 +88,9 @@ const GetInTouchComponent = () => {
             type: "success",
             text: "Thank you for showing your interest!",
           });
+          setTimeout(() => {
+            formik.handleReset();
+          }, 1500);
         } else {
           setMessage({
             type: "error",

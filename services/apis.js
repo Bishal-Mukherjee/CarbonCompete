@@ -99,14 +99,13 @@ export const bookDemoReq = async ({
       },
       data: {
         name,
-        workEmail: email,
+        email,
         location,
         phoneNo: phonenumber,
         description: message,
         isActive: true,
       },
     });
-
     if (request.data.success) {
       return {
         message: "success",

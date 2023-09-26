@@ -93,6 +93,9 @@ const WhitepaperComponent = () => {
             text: "Thank you for showing your interest!",
           });
           setDownloadLink(response.downloadurl);
+          setTimeout(() => {
+            formik.handleReset();
+          }, 1500);
         } else {
           setMessage({
             type: "error",
